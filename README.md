@@ -314,7 +314,7 @@ Di sini, dapat terlihat bahwa konfigurasi domain ```rujapala.it15.com``` berhasi
 Soal:
 > Pastikan domain-domain tersebut dapat diakses oleh seluruh komputer (client) yang berada di Nusantara.
 
-Agar seluruh client dapat mengakses domain-domain yang telah dibuat tadi, gunakan command ```echo nameserver 10.71.2.7``` untuk menambahkan nameserver DNS Sriwijaya ke setiap client (Mulawarman, GrahamBell, Samaratungga, dan Srikandi).
+Agar seluruh client dapat mengakses domain-domain yang telah dibuat tadi, gunakan command ```echo nameserver 10.71.2.7 > /etc/resolv.conf``` untuk menambahkan nameserver DNS Sriwijaya ke setiap client (Mulawarman, GrahamBell, Samaratungga, dan Srikandi).
 
 ![image](https://github.com/user-attachments/assets/777395d7-643f-4908-81f2-f3095af3a4d1)
 ![image](https://github.com/user-attachments/assets/2e18289c-6d50-4c8d-869e-c0202d918c49)
