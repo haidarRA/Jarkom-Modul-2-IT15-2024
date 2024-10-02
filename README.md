@@ -264,3 +264,48 @@ Domain pasopati.it15.com beserta aliasnya sudah dapat dites. Namun, sebelum meng
 
 Di sini, dapat terlihat bahwa konfigurasi domain ```pasopati.it15.com``` berhasil.
 
+# No. 4
+Soal:
+> Markas pusat meminta dibuatnya domain khusus untuk menaruh informasi persenjataan dan suplai yang tersebar. Informasi dan suplai meme terbaru tersebut mengarah ke Tanjungkulai dan domain yang ingin digunakan adalah rujapala.xxxx.com dengan alias www.rujapala.xxxx.com.
+
+Karena pada DNS Sriwijaya sudah ada bind9, maka tidak perlu menginstall bind9 lagi dan langsung menambahkan konfigurasi pada ```/etc/bind/named.conf.local```.
+```
+zone "rujapala.it15.com" {
+	type master;
+	file "/etc/bind/jarkom/rujapala.it15.com";
+};
+```
+![image](https://github.com/user-attachments/assets/6cbaa1bb-24ea-4ac0-950d-3a291b9bb359)
+
+Di directory ```/etc/bind/jarkom``` yang telah dibuat sebelumnya, copy template default dari bind9 dengan command ```cp /etc/bind/db.local /etc/bind/jarkom/rujapala.it15.com```
+
+Setelah copy template dari bind9, ubah konfigurasi pada ```/etc/bind/jarkom/rujapala.it15.com``` hingga sesuai dengan konfigurasi di bawah.
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     rujapala.it15.com. root.rujapala.it15.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      rujapala.it15.com.
+@       IN      A       10.71.2.6
+www     IN      CNAME   rujapala.it15.com.
+@       IN      AAAA    ::1
+```
+![image](https://github.com/user-attachments/assets/7abba151-581e-402e-8e31-fb3b81c19d25)
+
+Setelah selesai mengatur konfigurasi, bind9 dapat di-restart pada DNS.
+```
+service bind9 restart
+```
+
+Domain rujapala.it15.com beserta aliasnya sudah dapat dites. Namun, sebelum mengetes domain yang telah dibuat, masukkan ```nameserver 10.71.2.7``` (IP DNS Sriwijaya) agar client dapat mengakses domain yang telah dibuat. Karena client yang akan digunakan untuk testing adalah Srikandi, maka tidak perlu menambahkan nameserver DNS lagi dan domain bisa langsung dites.
+
+![image](https://github.com/user-attachments/assets/5d1f2a2d-cfbb-4231-b5d2-c8b1b798cb13)
+
+Di sini, dapat terlihat bahwa konfigurasi domain ```rujapala.it15.com``` berhasil.
