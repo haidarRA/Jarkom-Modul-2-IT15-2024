@@ -141,3 +141,21 @@ iface eth0 inet static
     netmask 255.255.255.0
     gateway 10.71.2.1
 ```
+Setelah selesai setup network configuration setiap node, jalankan command ini agar router dapat terhubung dengan internet.
+```
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.71.0.0/16
+```
+Setelah menjalankan command di atas, cek apakah router bisa terhubung dengan internet dengan menggunakan command **ping google.com**.
+![image](https://github.com/user-attachments/assets/6cf6c02d-ff22-4262-8b0b-ad835b4e8731)
+Di sini dapat terlihat bahwa router berhasil terhubung dengan internet.
+
+Selanjutnya, agar DNS (dalam kasus ini, Sriwijaya) juga terhubung dengan internet, tambahkan nameserver IP router (192.168.122.1) ke /etc/resolv.conf pada node DNS.
+```
+nameserver 192.168.122.1
+```
+
+![image](https://github.com/user-attachments/assets/46d8f157-0a20-4790-a0b2-974166162d73)
+
+Setelah menambahkan nameserver IP router ke DNS, cek apakah DNS bisa terhubung ke internet dengan menggunakan command **ping google.com**
+![image](https://github.com/user-attachments/assets/6d890198-9796-4592-b529-1bd402f8558f)
+Di sini dapat terlihat bahwa router berhasil terhubung dengan internet sehingga bind9 dapat di-install di node DNS Sriwijaya.
