@@ -320,4 +320,57 @@ Agar seluruh client dapat mengakses domain-domain yang telah dibuat tadi, gunaka
 ![image](https://github.com/user-attachments/assets/2e18289c-6d50-4c8d-869e-c0202d918c49)
 ![image](https://github.com/user-attachments/assets/49c8eba5-861c-4340-9795-77bdc22d27eb)
 
+# No. 6
+Soal:
+> Beberapa daerah memiliki keterbatasan yang menyebabkan hanya dapat mengakses domain secara langsung melalui alamat IP domain tersebut. Karena daerah tersebut tidak diketahui secara spesifik, pastikan semua komputer (client) dapat mengakses domain pasopati.xxxx.com melalui alamat IP Kotalingga (Notes: menggunakan pointer record).
+
+Untuk mengakses domain ```pasopati.it15.com```` melalui IP Kotalingga (10.71.2.4), digunakan Reverse DNS pada DNS Sriwijaya.
+
+Pertama, tambahkan konfigurasi berikut ke ```/etc/bind/named.conf.local```.
+```
+zone "2.71.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/jarkom/2.71.10.in-addr.arpa";
+};
+```
+![image](https://github.com/user-attachments/assets/1b0a1bd0-fc57-4fa9-9f32-06a855b24679)
+
+Lalu, lakukan hal yang sama seperti saat membuat domain, yaitu copy template default dari bind9 dengan command ```cp /etc/bind/db.local /etc/bind/jarkom/2.71.10.in-addr.arpa``` di directory ```/etc/bind/jarkom```
+yang telah dibuat sebelumnya.
+
+Setelah copy template dari bind9, ubah konfigurasi pada ```/etc/bind/jarkom/2.71.10.in-addr.arpa``` hingga sesuai dengan konfigurasi di bawah.
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     pasopati.it15.com. root.pasopati.it15.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+2.71.10.in-addr.arpa	IN	NS	pasopati.it15.com.
+4			IN	PTR	pasopati.it15.com.
+```
+![image](https://github.com/user-attachments/assets/8f2540ee-c655-4253-9ddc-395e2b0e94e3)
+
+Setelah selesai mengatur konfigurasi, bind9 dapat di-restart pada DNS.
+```
+service bind9 restart
+```
+
+Sebelum mengecek konfigurasi DNS reverse, ada baiknya menginstall dnsutils terlebih dahulu agar bisa mengetes DNS reverse.
+```
+apt-get update
+```
+```
+apt-get install dnsutils
+```
+
+Setelah selesai install dnsutils, dapat menggunakan command berikut untuk menguji DNS reverse.
+```
+host -t PTR 10.71.2.4
+```
 
