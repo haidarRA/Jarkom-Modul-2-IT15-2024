@@ -309,3 +309,15 @@ Domain rujapala.it15.com beserta aliasnya sudah dapat dites. Namun, sebelum meng
 ![image](https://github.com/user-attachments/assets/5d1f2a2d-cfbb-4231-b5d2-c8b1b798cb13)
 
 Di sini, dapat terlihat bahwa konfigurasi domain ```rujapala.it15.com``` berhasil.
+
+# No. 5
+Soal:
+> Pastikan domain-domain tersebut dapat diakses oleh seluruh komputer (client) yang berada di Nusantara.
+
+Agar seluruh client dapat mengakses domain-domain yang telah dibuat tadi, gunakan command ```echo nameserver 10.71.2.7``` untuk menambahkan nameserver DNS Sriwijaya ke setiap client (Mulawarman, GrahamBell, Samaratungga, dan Srikandi).
+
+![image](https://github.com/user-attachments/assets/777395d7-643f-4908-81f2-f3095af3a4d1)
+![image](https://github.com/user-attachments/assets/2e18289c-6d50-4c8d-869e-c0202d918c49)
+![image](https://github.com/user-attachments/assets/49c8eba5-861c-4340-9795-77bdc22d27eb)
+
+
