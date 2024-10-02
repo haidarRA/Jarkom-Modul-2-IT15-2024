@@ -145,7 +145,7 @@ Setelah selesai setup network configuration setiap node, jalankan command ini ag
 ```
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.71.0.0/16
 ```
-Setelah menjalankan command di atas, cek apakah router bisa terhubung dengan internet dengan menggunakan command **ping google.com**.
+Setelah menjalankan command di atas, cek apakah router bisa terhubung dengan internet dengan menggunakan command ```ping google.com```.
 ![image](https://github.com/user-attachments/assets/6cf6c02d-ff22-4262-8b0b-ad835b4e8731)
 Di sini dapat terlihat bahwa router berhasil terhubung dengan internet.
 
@@ -156,6 +156,59 @@ nameserver 192.168.122.1
 
 ![image](https://github.com/user-attachments/assets/46d8f157-0a20-4790-a0b2-974166162d73)
 
-Setelah menambahkan nameserver IP router ke DNS, cek apakah DNS bisa terhubung ke internet dengan menggunakan command **ping google.com**
+Setelah menambahkan nameserver IP router ke DNS, cek apakah DNS bisa terhubung ke internet dengan menggunakan command ```ping google.com```.
 ![image](https://github.com/user-attachments/assets/6d890198-9796-4592-b529-1bd402f8558f)
 Di sini dapat terlihat bahwa router berhasil terhubung dengan internet sehingga bind9 dapat di-install di node DNS Sriwijaya.
+
+# No. 2
+Soal:
+> Karena para pasukan membutuhkan koordinasi untuk melancarkan serangannya, maka buatlah sebuah domain yang mengarah ke Solok dengan alamat sudarsana.xxxx.com dengan alias www.sudarsana.xxxx.com, dimana xxxx merupakan kode kelompok. Contoh: sudarsana.it01.com.
+
+Sebelum membuat domain sudarsana.it15.com beserta dengan aliasnya, perlu menginstall bind9 terlebih dahulu pada DNS Sriwijaya.
+```
+apt-get update
+```
+```
+apt-get install bind9 -y
+```
+
+Setelah menginstall bind9, masukkan konfigurasi berikut ke ```/etc/bind/named.conf.local```.
+```
+zone "sudarsana.it15.com" {
+	type master;
+	file "/etc/bind/jarkom/sudarsana.it15.com";
+};
+```
+![image](https://github.com/user-attachments/assets/72095089-bf17-406c-aa0d-5636ec28867b)
+
+Setelah itu, buatlah directory baru untuk domain bind9 dengan command ```mkdir /etc/bind/jarkom```.
+
+Setelah membuat directory baru, copy template default dari bind9 dengan command ```cp /etc/bind/db.local /etc/bind/jarkom/sudarsana.it15.com```
+
+Setelah copy template dari bind9, ubah konfigurasi pada ```/etc/bind/jarkom/sudarsana.it15.com``` hingga sesuai dengan konfigurasi di bawah.
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     sudarsana.it15.com. root.sudarsana.it15.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      sudarsana.it15.com.
+@       IN      A       10.71.2.2
+www     IN      CNAME   sudarsana.it15.com.
+@       IN      AAAA    ::1
+```
+![image](https://github.com/user-attachments/assets/063caa94-743e-4f6c-8cc9-469d9c62a05d)
+
+Domain sudarsono.it15.com beserta aliasnya sudah dapat dites. Namun, sebelum mengetes domain yang telah dibuat, masukkan ```nameserver 10.71.2.7``` (IP DNS Sriwijaya) agar client dapat mengakses domain yang telah dibuat.
+![image](https://github.com/user-attachments/assets/56a9f914-3b3d-4d3f-b293-28244554eb8c)
+
+Setelah menambahkan nameserver baru, domain dapat dites.
+![image](https://github.com/user-attachments/assets/50a45ed8-9117-4210-84c2-384241f778c0)
+
+Di sini, dapat terlihat bahwa konfigurasi domain ```sudarsana.it15.com``` berhasil.
