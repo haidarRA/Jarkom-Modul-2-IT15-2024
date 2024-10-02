@@ -205,6 +205,11 @@ www     IN      CNAME   sudarsana.it15.com.
 ```
 ![image](https://github.com/user-attachments/assets/063caa94-743e-4f6c-8cc9-469d9c62a05d)
 
+Setelah selesai mengatur konfigurasi, bind9 dapat di-restart pada DNS.
+```
+service bind9 restart
+```
+
 Domain sudarsono.it15.com beserta aliasnya sudah dapat dites. Namun, sebelum mengetes domain yang telah dibuat, masukkan ```nameserver 10.71.2.7``` (IP DNS Sriwijaya) agar client dapat mengakses domain yang telah dibuat.
 ![image](https://github.com/user-attachments/assets/56a9f914-3b3d-4d3f-b293-28244554eb8c)
 
@@ -212,3 +217,50 @@ Setelah menambahkan nameserver baru, domain dapat dites.
 ![image](https://github.com/user-attachments/assets/50a45ed8-9117-4210-84c2-384241f778c0)
 
 Di sini, dapat terlihat bahwa konfigurasi domain ```sudarsana.it15.com``` berhasil.
+
+# No.3
+Soal:
+> Para pasukan juga perlu mengetahui mana titik yang akan diserang, sehingga dibutuhkan domain lain yaitu pasopati.xxxx.com dengan alias www.pasopati.xxxx.com yang mengarah ke Kotalingga.
+
+Karena pada DNS Sriwijaya sudah ada bind9, maka tidak perlu menginstall bind9 lagi dan langsung menambahkan konfigurasi pada ```/etc/bind/named.conf.local```.
+```
+zone "pasopati.it15.com" {
+	type master;
+	file "/etc/bind/jarkom/pasopati.it15.com";
+};
+```
+![image](https://github.com/user-attachments/assets/1da41e06-46b7-45c1-bbd7-499f18773c46)
+
+Di directory ```/etc/bind/jarkom``` yang telah dibuat sebelumnya, copy template default dari bind9 dengan command ```cp /etc/bind/db.local /etc/bind/jarkom/pasopati.it15.com```
+
+Setelah copy template dari bind9, ubah konfigurasi pada ```/etc/bind/jarkom/pasopati.it15.com``` hingga sesuai dengan konfigurasi di bawah.
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     pasopati.it15.com. root.pasopati.it15.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      pasopati.it15.com.
+@       IN      A       10.71.2.4
+www     IN      CNAME   pasopati.it15.com.
+@       IN      AAAA    ::1
+```
+![image](https://github.com/user-attachments/assets/4073c2ae-5a70-4cdd-b076-adb05e84e7ec)
+
+Setelah selesai mengatur konfigurasi, bind9 dapat di-restart pada DNS.
+```
+service bind9 restart
+```
+
+Domain pasopati.it15.com beserta aliasnya sudah dapat dites. Namun, sebelum mengetes domain yang telah dibuat, masukkan ```nameserver 10.71.2.7``` (IP DNS Sriwijaya) agar client dapat mengakses domain yang telah dibuat. Karena client yang akan digunakan untuk testing adalah Srikandi, maka tidak perlu menambahkan nameserver DNS lagi dan domain bisa langsung dites.
+
+![image](https://github.com/user-attachments/assets/3b16e3bb-331e-42ed-81fc-b69df4f74eb6)
+
+Di sini, dapat terlihat bahwa konfigurasi domain ```pasopati.it15.com``` berhasil.
+
