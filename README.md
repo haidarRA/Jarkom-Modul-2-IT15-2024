@@ -691,17 +691,21 @@ sudo apt install apache2-utils
 Setelah itu, dapat membuat laporan hasil benchmark dengan apache benchmark menggunakan command ```ab -n 1000 -c 100 http://10.71.2.2``` untuk masing - masing algoritma load balancer.
 
 **Round Robin**
+
 ![image](https://github.com/user-attachments/assets/3a753c3f-b747-4897-b86d-29cab52140f6)
 ![image](https://github.com/user-attachments/assets/e4c539e1-6936-4740-a596-328419af33bd)
 
 **Least Connection**
+
 ![image](https://github.com/user-attachments/assets/595d7e4f-aa69-4c17-90b5-0a7a2e0b825f)
 ![image](https://github.com/user-attachments/assets/19bd1da4-2df0-46b5-a403-afb064071245)
 
 **IP Hash**
+
 ![image](https://github.com/user-attachments/assets/2323493c-eca9-4175-b9c8-8d2f14b018ef)
 ![image](https://github.com/user-attachments/assets/378d0164-36ca-4624-ab95-744755ddc4c0)
 
 **Generic Hash**
+
 ![image](https://github.com/user-attachments/assets/5f935355-ac70-4a1c-86c3-de4176f54287)
 ![image](https://github.com/user-attachments/assets/8f21b456-0bb7-4261-8cc7-7a6eb5c20cef)
