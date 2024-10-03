@@ -881,6 +881,11 @@ time taken for test: 0.413s
 request per second (rps): 2420.66s
 ```
 
+## Grafik RPS:
+
+![grafik jarkom modul 2 laporan analisa](https://github.com/user-attachments/assets/9dadf14a-2a89-452f-9ffb-e696cce3312f)
+
+
 ## Hasil Analisis:
 Dari hasil benchmarking, dapat disimpulkan bahwa algoritma load balancing **generic hash** adalah yang terbaik karena mempunyai request per second yang tinggi dengan waktu yang lebih cepat dibandingkan dengan algoritma load balancing lainnya. Sedangkan untuk web server dengan performa terbaik adalah **Kotalingga** dengan rps dan time taken for test yang lebih unggul.
 
@@ -925,3 +930,5 @@ www     IN      CNAME   solok.it15.com.
 
 Domain solok.it15.com beserta aliasnya (www.solok.it15.com) sudah bisa dites.
 ![image](https://github.com/user-attachments/assets/84511951-4ffe-4126-afb7-f8da08310945)
+![image](https://github.com/user-attachments/assets/4bd3a6e3-5edc-4ff1-9574-51effcf91780)
+![image](https://github.com/user-attachments/assets/b9355dde-800b-40b7-b820-c3699e4e4a28)
