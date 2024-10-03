@@ -396,3 +396,21 @@ service bind9 restart
 
 - testing
 pada sriwijaya matikan bind9 "service bind9 stop", lalu pada client masukkan nameserver ke dua dns tersebut lalu ujilah dengan melakukan ping ke domain-domain yang sudah ada
+
+
+# No. 8
+Soal:
+> Kamu juga diperintahkan untuk membuat subdomain khusus melacak kekuatan tersembunyi di Ohio dengan subdomain cakra.sudarsana.xxxx.com yang mengarah ke Bedahulu.
+
+- Setting pada sriwijaya di /etc/bind/jarkom/sudarsana.it15.com
+![Screenshot 2024-10-03 163313](https://github.com/user-attachments/assets/93192aae-98c5-4478-8de9-145d65578a75)
+
+- lakukan restart bind9 di sriwijaya
+```
+service bind9 restart
+```
+- testing
+coba lakukan ping di client dengan ping ke domain cakra.sudarsana.it15.com
+```
+ping cakra.sudarsana.it15.com
+```
