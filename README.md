@@ -974,8 +974,8 @@ mkdir /etc/bind/jarkom
 cp /etc/bind/db.local /etc/bind/jarkom/sekianterimakasih.it15.com
 ```
 
-lakukan pengaturan di /etc/bind/jarkom/sekianterimakasih/it15.com
-![Screenshot 2024-10-04 051938](https://github.com/user-attachments/assets/33e8d757-8f6a-40ad-b789-711cd9dbdc11)
+lakukan pengaturan di /etc/bind/jarkom/sekianterimakasih.it15.com
+![image](https://github.com/user-attachments/assets/ba5fb699-0a03-4014-b9a1-1e2d2c1ef3bf)
 
 - lakukan pengujian dengan komputer klien, lakukan lynx ke domain yang telah dibuat maka seharusnya memunculkan dir listing
 
