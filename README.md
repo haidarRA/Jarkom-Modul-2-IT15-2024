@@ -373,6 +373,7 @@ Setelah selesai install dnsutils, dapat menggunakan command berikut untuk menguj
 ```
 host -t PTR 10.71.2.4
 ```
+![image](https://github.com/user-attachments/assets/9efd6d81-e2ed-4780-acc8-08b52234c6bd)
 
 # No. 7
 Soal:
