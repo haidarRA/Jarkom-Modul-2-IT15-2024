@@ -457,9 +457,14 @@ service bind9 restart
 Lakukan ping ke domain panah.pasopati.it15.com dari client
 
 
+# No. 10
+Soal:
+> Markas juga meminta catatan kapan saja meme brain rot akan dijatuhkan, maka buatlah subdomain baru di subdomain panah yaitu log.panah.pasopati.xxxx.com serta aliasnya www.log.panah.pasopati.xxxx.com yang juga mengarah ke Kotalingga.
 
+- lakukan setting pada majapahit di /etc/bind/panah/panah.pasopati.it15.com
+![Screenshot 2024-10-03 165848](https://github.com/user-attachments/assets/dc0e282e-d8c5-43ba-8eea-d2afb3ffb2fa)
 
-
+- lakukan testing ke semua klien dengan melakukan ping ke log.panah.pasopati.it15.com
 
 
 
