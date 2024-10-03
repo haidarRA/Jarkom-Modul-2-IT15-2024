@@ -884,4 +884,9 @@ request per second (rps): 2420.66s
 ## Hasil Analisis:
 Dari hasil benchmarking, dapat disimpulkan bahwa algoritma load balancing **generic hash** adalah yang terbaik karena mempunyai request per second yang tinggi dengan waktu yang lebih cepat dibandingkan dengan algoritma load balancing lainnya. Sedangkan untuk web server dengan performa terbaik adalah **Kotalingga** dengan rps dan time taken for test yang lebih unggul.
 
+Meme:
+
+![image](https://github.com/user-attachments/assets/063951cb-ef7d-4bd1-9695-de7e6763638b)
+
 # No. 16
+
