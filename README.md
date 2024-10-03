@@ -938,20 +938,20 @@ Domain solok.it15.com beserta aliasnya (www.solok.it15.com) sudah bisa dites.
 Soal:
 >Agar aman, buatlah konfigurasi agar solok.xxx.com hanya dapat diakses melalui port sebesar π x 10^4 = (phi nya desimal) dan 2000 + 2000 log 10 (10) +700 - π = ?.
 
-- lakukan pengaturan tanjungkulai di /etc/nginx/sites-enabled/jarkom
+- lakukan pengaturan kotalingga di /etc/nginx/sites-available/jarkom
 ![Screenshot 2024-10-04 050821](https://github.com/user-attachments/assets/2357b59b-2dea-4189-98fc-c431004a92e7)
 
 - lakukan lynx di klien ke solok.it15.com:31415 dan port 6696
 
-No. 18
+# No. 18
 Soal:
 >Apa bila ada yang mencoba mengakses IP solok akan secara otomatis dialihkan ke www.solok.xxxx.com.
 
-- lakukan pengaturan tanjungkulai di /etc/nginx/sites-enabled/jarkom
+- lakukan pengaturan kotalingga di /etc/nginx/sites-available/jarkom
 ![Screenshot 2024-10-04 051122](https://github.com/user-attachments/assets/a72dfe74-6993-41e6-8a0d-28292683dd9d)
 
-- lakukan pengujian di klien denga lynx ke 10.71.2.6 jika dapat masuk ke content dari web server maka berhasil
-![Screenshot 2024-10-04 051226](https://github.com/user-attachments/assets/5bc125b6-dca2-46ac-af40-35e84c25e940)
+- lakukan pengujian di klien denga lynx ke 10.71.2.4 jika dapat masuk ke content dari web server maka berhasil
+![image](https://github.com/user-attachments/assets/079ed022-38c3-4fcf-b612-07e58a5e1393)
 
 # No. 19 & 20
 Soal:
