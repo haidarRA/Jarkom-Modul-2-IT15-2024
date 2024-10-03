@@ -577,4 +577,4 @@ Untuk mengetes load balancer Solok, dapat mengakses IP dari Solok menggunakan co
 ![image](https://github.com/user-attachments/assets/2111829c-99e8-4d84-bd59-3f964e3bee78)
 ![image](https://github.com/user-attachments/assets/3f7a13d7-9445-462b-8d0e-a6bc2bda707b)
 
-Setiap kali IP Solok diakses menggunakan lynx, isi dari index.php akan berubah.
+Setiap kali IP Solok diakses menggunakan lynx, isi dari index.php akan bergantian.
