@@ -482,6 +482,7 @@ Soal:
 ```
 service bind9 restart
 ```
+setelah melakukan setting di atas DNS Server sriwijaya dapat melakukan akses ke jaringan luar, menggunakan Google Public DNS.
 
 
 
