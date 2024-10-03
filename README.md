@@ -491,11 +491,42 @@ service bind9 restart
 setelah melakukan setting di atas DNS Server Majapahit dapat melakukan akses ke jaringan luar, menggunakan Google Public DNS.
 ![image](https://github.com/user-attachments/assets/eea7ce97-be8d-4248-a501-126de2b5ef05)
 
+# No. 12
+Soal:
+> Karena pusat ingin sebuah laman web yang ingin digunakan untuk memantau kondisi kota lainnya maka deploy laman web ini (cek resource yg lb) pada Kotalingga menggunakan apache.
 
+Pertama, download semua kebutuhan yang diperlukan untuk mendeploy apache2 pada web server Kotalingga.
+```
+apt-get install unzip wget apache2 libapache2-mod-php7.0 -y
+```
 
+Setelah selesai menginstall kebutuhan, edit file ```000-default.conf``` dengan command ```nano /etc/apache2/sites-available/000-default.conf``` dengan konfigurasi berikut.
+```
+<VirtualHost *:80>
+	ServerName pasopati.it15.com
 
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/html
+</VirtualHost>
+```
+![image](https://github.com/user-attachments/assets/c05a8b87-cbb7-48cd-85ed-d4869a4eef77)
 
+Setelah konfigurasi file ```000-default.conf```, download file lb.zip dari resource jarkom dengan command berikut.
+```
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Sqf0TIiybYyUp5nyab4twy9svkgq8bi7' -O lb.zip
+```
 
+Kemudian unzip file lb.zip dan pindahkan index.php dari hasil unzip ke directory ```/var/www/html```.
+```
+unzip lb.zip -d lb
+cp lb/worker/index.php /var/www/html/index.php
+```
 
+Kemudian restart apache2.
+```
+service apache2 restart
+```
 
-
+Setelah restart apache2 pada web server Kotalingga, web apache2 yang telah di-deploy dapat dites melalui salah satu client yang ada.
+![image](https://github.com/user-attachments/assets/f014bc39-4b61-4c2b-84b4-5efba5085a38)
+![image](https://github.com/user-attachments/assets/4a741671-d8c6-4059-bf3e-55316e6505a7)
