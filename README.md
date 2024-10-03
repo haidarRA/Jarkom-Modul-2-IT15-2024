@@ -460,7 +460,7 @@ service bind9 restart
 
 - testing
 Lakukan ping ke domain panah.pasopati.it15.com dari client
-
+![image](https://github.com/user-attachments/assets/6bbb8ac0-a13c-4e8b-9640-91765a506b61)
 
 # No. 10
 Soal:
@@ -474,20 +474,22 @@ Soal:
 service bind9 restart
 ```
 
-- lakukan testing ke semua klien dengan melakukan ping ke log.panah.pasopati.it15.com
+- lakukan testing dari client dengan melakukan ping ke log.panah.pasopati.it15.com
+![image](https://github.com/user-attachments/assets/b2832d94-13fb-4d3d-b051-01c5af9bce9a)
 
 # No. 11
 Soal:
 > Setelah pertempuran mereda, warga IT dapat kembali mengakses jaringan luar dan menikmati meme brainrot terbaru, tetapi hanya warga Majapahit saja yang dapat mengakses jaringan luar secara langsung. Buatlah konfigurasi agar warga IT yang berada diluar Majapahit dapat mengakses jaringan luar melalui DNS Server Majapahit.
 
-- lakukan editing di file /etc/bind/named.conf.options di dns sriwijaya
-![Screenshot 2024-10-03 170213](https://github.com/user-attachments/assets/cb6cdf5b-2a9a-4296-bfcf-e1fb15c113e5)
+- lakukan editing di file /etc/bind/named.conf.options di dns Majapahit
+![image](https://github.com/user-attachments/assets/49aa3d58-0b65-4ff7-b47e-276d63a376de)
 
 - restart bind9
 ```
 service bind9 restart
 ```
-setelah melakukan setting di atas DNS Server sriwijaya dapat melakukan akses ke jaringan luar, menggunakan Google Public DNS.
+setelah melakukan setting di atas DNS Server Majapahit dapat melakukan akses ke jaringan luar, menggunakan Google Public DNS.
+![image](https://github.com/user-attachments/assets/eea7ce97-be8d-4248-a501-126de2b5ef05)
 
 
 
