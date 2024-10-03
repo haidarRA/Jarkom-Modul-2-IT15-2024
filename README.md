@@ -690,22 +690,91 @@ sudo apt install apache2-utils
 
 Setelah itu, dapat membuat laporan hasil benchmark dengan apache benchmark menggunakan command ```ab -n 1000 -c 100 http://10.71.2.2``` untuk masing - masing algoritma load balancer.
 
-**Round Robin**
+## Round Robin
+
+**1. General**
 
 ![image](https://github.com/user-attachments/assets/3a753c3f-b747-4897-b86d-29cab52140f6)
 ![image](https://github.com/user-attachments/assets/e4c539e1-6936-4740-a596-328419af33bd)
 
-**Least Connection**
+**2. Kotalingga**
+
+![image](https://github.com/user-attachments/assets/84eff3ec-d595-4a74-a598-7065fc27813c)
+![image](https://github.com/user-attachments/assets/e27c4a76-ed09-4384-a541-4a2aff232931)
+
+**3. Bedahulu**
+
+![image](https://github.com/user-attachments/assets/bb15d9c4-f908-4cfe-8943-4d0524ece808)
+![image](https://github.com/user-attachments/assets/58eeebac-2676-492b-94d9-06b4d11a1fd6)
+
+**4. Tanjungkulai**
+
+![image](https://github.com/user-attachments/assets/bc76aa5c-f536-4851-aa79-72eb821e05f5)
+![image](https://github.com/user-attachments/assets/afc24f02-5881-4a1f-8a21-6689781fbfcf)
+
+## Least Connection
+
+**1. General**
 
 ![image](https://github.com/user-attachments/assets/595d7e4f-aa69-4c17-90b5-0a7a2e0b825f)
 ![image](https://github.com/user-attachments/assets/19bd1da4-2df0-46b5-a403-afb064071245)
 
-**IP Hash**
+**2. Kotalingga**
+
+![image](https://github.com/user-attachments/assets/2f3caee7-2c07-4f6f-a7de-51b86c89b23c)
+![image](https://github.com/user-attachments/assets/173c49d8-9737-4628-8c28-1acee45c5ec4)
+
+**3. Bedahulu**
+
+![image](https://github.com/user-attachments/assets/d2b1273f-1d5a-4387-a512-d6e1bcdf65dd)
+![image](https://github.com/user-attachments/assets/c948c66a-7fd3-447f-90c9-d0ee292da431)
+
+**4. Tanjungkulai**
+
+![image](https://github.com/user-attachments/assets/e2becb3c-7fc1-41fd-8eef-d25947061d5a)
+![image](https://github.com/user-attachments/assets/49a76646-fad4-4b5a-afdb-e2beab1ea744)
+
+## IP Hash
+
+**1. General**
 
 ![image](https://github.com/user-attachments/assets/2323493c-eca9-4175-b9c8-8d2f14b018ef)
 ![image](https://github.com/user-attachments/assets/378d0164-36ca-4624-ab95-744755ddc4c0)
 
-**Generic Hash**
+**2. Kotalingga**
+
+![image](https://github.com/user-attachments/assets/4f65d8f8-794f-422e-b282-3ed3f7301810)
+![image](https://github.com/user-attachments/assets/81c10c32-ad1e-4a66-b586-ac3d85e3ca26)
+
+**3. Bedahulu**
+
+![image](https://github.com/user-attachments/assets/a03ffc21-26ff-46cc-aa0c-51350d9d2b94)
+![image](https://github.com/user-attachments/assets/fb75c9e4-9bbf-481f-9097-bcdb0e2d9683)
+
+**4. Tanjungkulai**
+
+![image](https://github.com/user-attachments/assets/3848a599-513d-4a92-a4c4-2e5e598f101c)
+![image](https://github.com/user-attachments/assets/2ea42134-bd80-4a6b-ae97-7f73c5260b0f)
+
+## Generic Hash
+
+**1. General**
 
 ![image](https://github.com/user-attachments/assets/5f935355-ac70-4a1c-86c3-de4176f54287)
 ![image](https://github.com/user-attachments/assets/8f21b456-0bb7-4261-8cc7-7a6eb5c20cef)
+
+**2. Kotalingga**
+
+![image](https://github.com/user-attachments/assets/c7d226a7-0a95-4c6c-b84f-228f3ad9f0a2)
+![image](https://github.com/user-attachments/assets/2eecae95-04ef-41c5-8457-0ba027edbf00)
+
+**3. Bedahulu**
+
+![image](https://github.com/user-attachments/assets/0dbd6e32-797e-455c-9f77-07b769fdee3f)
+![image](https://github.com/user-attachments/assets/4ea3b611-39a6-4216-b2c1-57bc185d814b)
+
+**4. Tanjungkulai**
+
+![image](https://github.com/user-attachments/assets/16db1bc5-5713-4d47-afc6-087802444326)
+![image](https://github.com/user-attachments/assets/9046b000-a26f-4961-bbe5-cfdec321e786)
+
