@@ -8,6 +8,7 @@
 
 ## TOPOLOGI
 ![3](https://github.com/user-attachments/assets/56dae7b3-9595-481b-9116-60a1fa37e7a1)
+![image](https://github.com/user-attachments/assets/9dff7c83-10ea-43d3-96ff-30dcc4a98303)
 
 ## IP Address Tiap Node
 | Node           | IP Address         |
