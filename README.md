@@ -374,3 +374,25 @@ Setelah selesai install dnsutils, dapat menggunakan command berikut untuk menguj
 host -t PTR 10.71.2.4
 ```
 
+# No. 7
+Soal:
+> Akhir-akhir ini seringkali terjadi serangan brainrot ke DNS Server Utama, sebagai tindakan antisipasi kamu diperintahkan untuk membuat DNS Slave di Majapahit untuk semua domain yang sudah dibuat sebelumnya yang mengarah ke Sriwijaya.
+
+- Setting pada sriwijaya di /etc/bind/named.conf.local
+![Screenshot 2024-10-03 153254](https://github.com/user-attachments/assets/83cb7bd9-b3cc-48c9-8f0d-48cf4f24d0a1)
+
+- lakukan restart bind9
+```
+service bind9 restart
+```
+
+- setting pada majapahit di /etc/bind/named.conf.local
+![Screenshot 2024-10-03 153629](https://github.com/user-attachments/assets/18886a88-df9b-4ecb-8f17-d4bc434d1ae8)
+
+- lakukan restart bind9
+```
+service bind9 restart
+```
+
+- testing
+pada sriwijaya matikan bind9 "service bind9 stop", lalu pada client masukkan nameserver ke dua dns tersebut lalu ujilah dengan melakukan ping ke domain-domain yang sudah ada
