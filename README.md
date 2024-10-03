@@ -464,7 +464,25 @@ Soal:
 - lakukan setting pada majapahit di /etc/bind/panah/panah.pasopati.it15.com
 ![Screenshot 2024-10-03 165848](https://github.com/user-attachments/assets/dc0e282e-d8c5-43ba-8eea-d2afb3ffb2fa)
 
+- restart bind9
+```
+service bind9 restart
+```
+
 - lakukan testing ke semua klien dengan melakukan ping ke log.panah.pasopati.it15.com
+
+# No. 11
+Soal:
+> Setelah pertempuran mereda, warga IT dapat kembali mengakses jaringan luar dan menikmati meme brainrot terbaru, tetapi hanya warga Majapahit saja yang dapat mengakses jaringan luar secara langsung. Buatlah konfigurasi agar warga IT yang berada diluar Majapahit dapat mengakses jaringan luar melalui DNS Server Majapahit.
+
+- lakukan editing di file /etc/bind/named.conf.options di dns sriwijaya
+![Screenshot 2024-10-03 170213](https://github.com/user-attachments/assets/cb6cdf5b-2a9a-4296-bfcf-e1fb15c113e5)
+
+- restart bind9
+```
+service bind9 restart
+```
+
 
 
 
