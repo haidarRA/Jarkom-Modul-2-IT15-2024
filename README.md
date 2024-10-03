@@ -1,4 +1,4 @@
-![Screenshot 2024-10-04 050821](https://github.com/user-attachments/assets/bfdfd0f6-6100-4554-a456-1fbb444b3aca)# Jarkom-Modul-2-IT15-2024
+# Jarkom-Modul-2-IT15-2024
 
 ## ***KELOMPOK IT15***
 | Nama      | NRP         |
