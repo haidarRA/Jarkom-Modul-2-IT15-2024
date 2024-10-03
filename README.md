@@ -397,6 +397,9 @@ service bind9 restart
 
 - testing
 pada sriwijaya matikan bind9 "service bind9 stop", lalu pada client masukkan nameserver ke dua dns tersebut lalu ujilah dengan melakukan ping ke domain-domain yang sudah ada
+![image](https://github.com/user-attachments/assets/1f9fcbe5-3736-4685-ae44-7bebe13541c7)
+![image](https://github.com/user-attachments/assets/c57a60e1-8227-4dea-a830-902f0debea49)
+![image](https://github.com/user-attachments/assets/84201858-2afe-46c3-8c4f-ba9ca2ee2565)
 
 
 # No. 8
