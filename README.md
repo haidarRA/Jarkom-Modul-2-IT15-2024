@@ -1,4 +1,4 @@
-# Jarkom-Modul-2-IT15-2024
+![Screenshot 2024-10-04 050821](https://github.com/user-attachments/assets/bfdfd0f6-6100-4554-a456-1fbb444b3aca)# Jarkom-Modul-2-IT15-2024
 
 ## ***KELOMPOK IT15***
 | Nama      | NRP         |
@@ -933,3 +933,59 @@ Domain solok.it15.com beserta aliasnya (www.solok.it15.com) sudah bisa dites.
 ![image](https://github.com/user-attachments/assets/84511951-4ffe-4126-afb7-f8da08310945)
 ![image](https://github.com/user-attachments/assets/4bd3a6e3-5edc-4ff1-9574-51effcf91780)
 ![image](https://github.com/user-attachments/assets/b9355dde-800b-40b7-b820-c3699e4e4a28)
+
+# No. 17
+Soal:
+>Agar aman, buatlah konfigurasi agar solok.xxx.com hanya dapat diakses melalui port sebesar π x 10^4 = (phi nya desimal) dan 2000 + 2000 log 10 (10) +700 - π = ?.
+
+- lakukan pengaturan tanjungkulai di /etc/nginx/sites-enabled/jarkom
+![Screenshot 2024-10-04 050821](https://github.com/user-attachments/assets/2357b59b-2dea-4189-98fc-c431004a92e7)
+
+- lakukan lynx di klien ke solok.it15.com:31415 dan port 6696
+
+No. 18
+Soal:
+>Apa bila ada yang mencoba mengakses IP solok akan secara otomatis dialihkan ke www.solok.xxxx.com.
+
+- lakukan pengaturan tanjungkulai di /etc/nginx/sites-enabled/jarkom
+![Screenshot 2024-10-04 051122](https://github.com/user-attachments/assets/a72dfe74-6993-41e6-8a0d-28292683dd9d)
+
+- lakukan pengujian di klien denga lynx ke 10.71.2.6 jika dapat masuk ke content dari web server maka berhasil
+![Screenshot 2024-10-04 051226](https://github.com/user-attachments/assets/5bc125b6-dca2-46ac-af40-35e84c25e940)
+
+# No. 19 & 20
+Soal:
+>Karena probset sudah kehabisan ide masuk ke salah satu worker buatkan akses direktori listing yang mengarah ke resource worker2. Worker tersebut harus dapat di akses dengan sekiantterimakasih.xxxx.com dengan alias www.sekiantterimakasih.xxxx.com.
+
+- lakukan perintah ini di tanjungkulai
+![Screenshot 2024-10-04 051435](https://github.com/user-attachments/assets/4d1b9846-785d-4c2e-9236-c96bd02e188a)
+
+- lakukan setting di /etc/nginx/sites-enabled/jarkom
+![Screenshot 2024-10-04 051558](https://github.com/user-attachments/assets/cd2b5bf3-4976-4ecd-838f-7cc62c921569)
+
+- buat domain baru sesuai denga soal di dns sriwijaya
+pengaturan tambahan untuk named.conf.local
+![Screenshot 2024-10-04 051648](https://github.com/user-attachments/assets/cd98d6aa-7c31-4529-ba5b-d32ce35e2065)
+
+lakukan perintah ini untuk membuat domain baru
+```
+mkdir /etc/bind/jarkom
+
+cp /etc/bind/db.local /etc/bind/jarkom/sekianterimakasih.it15.com
+```
+
+lakukan pengaturan di /etc/bind/jarkom/sekianterimakasih/it15.com
+![Screenshot 2024-10-04 051938](https://github.com/user-attachments/assets/33e8d757-8f6a-40ad-b789-711cd9dbdc11)
+
+- lakukan pengujian dengan komputer klien, lakukan lynx ke domain yang telah dibuat maka seharusnya memunculkan dir listing
+
+
+
+
+
+
+
+
+
+
+
