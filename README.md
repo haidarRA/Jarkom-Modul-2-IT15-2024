@@ -418,6 +418,7 @@ coba lakukan ping di client dengan ping ke domain cakra.sudarsana.it15.com
 ```
 ping cakra.sudarsana.it15.com
 ```
+![image](https://github.com/user-attachments/assets/940aeb1f-8fa4-4e25-be7b-e69ec069c956)
 
 # No. 9
 Soal:
