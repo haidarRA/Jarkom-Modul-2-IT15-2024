@@ -889,4 +889,39 @@ Meme:
 ![image](https://github.com/user-attachments/assets/063951cb-ef7d-4bd1-9695-de7e6763638b)
 
 # No. 16
+Soal:
+>Karena dirasa kurang aman dari brainrot karena masih memakai IP, markas ingin akses ke Solok memakai solok.xxxx.com dengan alias www.solok.xxxx.com (sesuai web server terbaik hasil analisis kalian).
 
+Karena pada DNS Sriwijaya sudah ada bind9, maka tidak perlu menginstall bind9 lagi dan langsung menambahkan konfigurasi pada ```/etc/bind/named.conf.local```.
+```
+zone "solok.it15.com" {
+	type master;
+	file "/etc/bind/jarkom/solok.it15.com";
+};
+```
+![image](https://github.com/user-attachments/assets/ba725b44-71b2-4744-83de-8c4423f32534)
+
+Di directory ```/etc/bind/jarkom``` yang telah dibuat sebelumnya, copy template default dari bind9 dengan command ```cp /etc/bind/db.local /etc/bind/jarkom/solok.it15.com```
+
+Setelah copy template dari bind9, ubah konfigurasi pada ```/etc/bind/jarkom/solok.it15.com``` hingga sesuai dengan konfigurasi di bawah. Untuk IPnya adalah IP Tanjungkulai (10.71.2.6)
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     solok.it15.com. root.solok.it15.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      solok.it15.com.
+@       IN      A       10.71.2.6
+www     IN      CNAME   solok.it15.com.
+@       IN      AAAA    ::1
+```
+![image](https://github.com/user-attachments/assets/dbf3f545-61a3-4a2f-9968-5ff81f73ccd7)
+
+Domain solok.it15.com beserta aliasnya (www.solok.it15.com) sudah bisa dites.
+![image](https://github.com/user-attachments/assets/84511951-4ffe-4126-afb7-f8da08310945)
