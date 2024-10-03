@@ -578,3 +578,109 @@ Untuk mengetes load balancer Solok, dapat mengakses IP dari Solok menggunakan co
 ![image](https://github.com/user-attachments/assets/3f7a13d7-9445-462b-8d0e-a6bc2bda707b)
 
 Setiap kali IP Solok diakses menggunakan lynx, isi dari index.php akan bergantian.
+
+# No. 14
+Soal:
+>Selama melakukan penjarahan mereka melihat bagaimana web server luar negeri, hal ini membuat mereka iri, dengki, sirik dan ingin flexing sehingga meminta agar web server dan load balancer nya diubah menjadi nginx.
+
+**Load Balancer (Solok)**
+Pertama, hentikan apache2 dan install kebutuhan nginx.
+```
+service apache2 stop
+apt-get update
+apt-get install nginx -y
+```
+
+Kemudian, buat konfigurasi berikut pada ```/etc/nginx/sites-available/jarkom``` dengan command ```nano /etc/nginx/sites-available/jarkom```.
+```
+upstream node {
+    server 10.71.2.4;
+    server 10.71.2.5;
+    server 10.71.2.6;
+}
+
+server {
+    listen 80;
+    server_name _;
+    location / {
+        proxy_pass http://node;
+    }
+}
+```
+![image](https://github.com/user-attachments/assets/f00afe3a-586b-4be5-b933-bce7ff6cf34e)
+
+Kemudian, buat simlink dan hapus template default nginx.
+```
+ln -s /etc/nginx/sites-available/jarkom /etc/nginx/sites-enabled/jarkom
+
+rm /etc/nginx/sites-enabled/default
+```
+
+Setelah itu, restart nginx dengan command ```service nginx restart```.
+
+**Worker (Kotalingga, Bedahulu, Tanjungkulai**
+Sama seperti load balancer, hentikan apache2 dan install kebutuhan nginx.
+```
+apt-get update
+apt-get install nginx php-fpm -y
+```
+
+Setelah itu, buat directory jarkom di dalam ```/var/www/``` dan copy file php.
+```
+mkdir /var/www/jarkom
+cp /var/www/html/index.php /var/www/jarkom/index.php
+```
+
+Kemudian, buat konfigurasi berikut pada ```/etc/nginx/sites-available/jarkom``` dengan command ```nano /etc/nginx/sites-available/jarkom```.
+```
+server {
+
+	listen 80;
+
+	root /var/www/jarkom;
+
+	index index.php index.html index.htm;
+	server_name _;
+
+	location / {
+ 		try_files $uri $uri/ /index.php?$query_string;
+	}
+
+	# pass PHP scripts to FastCGI server
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+	}
+
+	location ~ /\.ht {
+		deny all;
+	}
+}
+```
+![image](https://github.com/user-attachments/assets/855e9307-63fd-46fb-a215-7c84210cf2d2)
+
+
+Kemudian, buat simlink dan hapus template default nginx.
+```
+ln -s /etc/nginx/sites-available/jarkom /etc/nginx/sites-enabled/jarkom
+
+rm /etc/nginx/sites-enabled/default
+```
+
+Setelah itu, restart nginx dengan command ```service nginx restart``` dan start service php-fpm dengan command ```service php7.0-fpm start```.
+
+Untuk mengetes load balancer Solok, sama seperti no. 14, dapat mengakses IP dari Solok menggunakan command ```lynx http://10.71.2.2/index.php```
+![image](https://github.com/user-attachments/assets/15ba9249-d6cd-402b-ad0d-f6680feafc80)
+![image](https://github.com/user-attachments/assets/d59c7c61-d1e5-4df0-8b0e-74dee7901b1a)
+![image](https://github.com/user-attachments/assets/a63e7724-f994-4450-bacb-5fbc3f5a110d)
+
+# No. 15
+Soal:
+>Markas pusat meminta laporan hasil benchmark dengan menggunakan apache benchmark dari load balancer dengan 2 web server yang berbeda tersebut dan meminta secara detail dengan ketentuan:
+> - Nama Algoritma Load Balancer
+> - Report hasil testing apache benchmark 
+> - Grafik request per second untuk masing masing algoritma. 
+> - Analisis
+> - Meme terbaik kalian (terserah ( ͡° ͜ʖ ͡°)) 🤓
+
+
