@@ -778,3 +778,110 @@ Setelah itu, dapat membuat laporan hasil benchmark dengan apache benchmark mengg
 ![image](https://github.com/user-attachments/assets/16db1bc5-5713-4d47-afc6-087802444326)
 ![image](https://github.com/user-attachments/assets/9046b000-a26f-4961-bbe5-cfdec321e786)
 
+## Laporan Hasil Benchmark
+```
+1. general
+**round robin**
+completed request: 1000
+failed request: 666
+time taken for test: 1.628s
+request per second (rps): 614.07
+
+**least conn**
+completed request: 1000
+failed request: 682
+time taken for test: 1.780s
+request per second (rps): 561.71
+
+**ip hash**
+completed request: 1000
+failed request: 0
+time taken for test: 1.583s
+request per second (rps): 631.59
+
+**generic hash**
+completed request: 1000
+failed request: 0
+time taken for test: 1.376s
+request per second (rps): 726.75
+
+2. kotalingga
+**round robin**
+completed request: 1000
+failed request: 0
+time taken for test: 0.383s
+request per second (rps): 2608.88
+
+**least conn**
+completed request: 1000
+failed request: 0
+time taken for test: 0.382s
+request per second (rps): 2620.40
+
+**ip hash**
+completed request: 1000
+failed request: 0
+time taken for test: 0.394s
+request per second (rps): 2538.41
+
+**generic hash**
+completed request: 1000
+failed request: 0
+time taken for test: 0.380s
+request per second (rps): 2633.76
+
+3. bedahulu
+**round robin**
+completed request: 1000
+failed request: 0
+time taken for test: 0.523
+request per second (rps): 1911.69
+
+**least conn**
+completed request: 1000
+failed request: 0
+time taken for test: 0.626s
+request per second (rps): 1597.74
+
+**ip hash**
+completed request: 1000
+failed request: 0
+time taken for test: 1.566s
+request per second (rps): 638.74
+
+**generic hash**
+completed request: 1000
+failed request: 0
+time taken for test: 0.509s
+request per second (rps) 1965
+
+4. tanjungkulai
+**round robin**
+completed request: 1000
+failed request: 0
+time taken for test: 0.615
+request per second (rps): 1625.24
+
+**least conn**
+completed request: 1000
+failed request: 0
+time taken for test: 0.456
+request per second (rps): 2194.71
+
+**ip hash**
+completed request: 1000
+failed request: 0
+time taken for test: 0.664
+request per second (rps): 1506.16
+
+**generic hash**
+completed request: 1000
+failed request: 0
+time taken for test: 0.413s
+request per second (rps): 2420.66s
+```
+
+## Hasil Analisis:
+Dari hasil benchmarking, dapat disimpulkan bahwa algoritma load balancing **generic hash** adalah yang terbaik karena mempunyai request per second yang tinggi dengan waktu yang lebih cepat dibandingkan dengan algoritma load balancing lainnya. Sedangkan untuk web server dengan performa terbaik adalah **Kotalingga** dengan rps dan time taken for test yang lebih unggul.
+
+# No. 16
