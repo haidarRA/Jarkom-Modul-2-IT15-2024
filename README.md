@@ -414,3 +414,57 @@ coba lakukan ping di client dengan ping ke domain cakra.sudarsana.it15.com
 ```
 ping cakra.sudarsana.it15.com
 ```
+
+# No. 9
+Soal:
+> Karena terjadi serangan DDOS oleh shikanoko nokonoko koshitantan (NUN), sehingga sistem komunikasinya terhalang. Untuk melindungi warga, kita diperlukan untuk membuat sistem peringatan dari siren man oleh Frekuensi Freak dan memasukkannya ke subdomain panah.pasopati.xxxx.com dalam folder panah dan pastikan dapat diakses secara mudah dengan menambahkan alias www.panah.pasopati.xxxx.com dan mendelegasikan subdomain tersebut ke Majapahit dengan alamat IP menuju radar di Kotalingga.
+
+- Setting pada sriwijaya di /etc/bind/jarkom/pasopati.it15.com
+![Screenshot 2024-10-03 163855](https://github.com/user-attachments/assets/b0aef7e3-f3da-44b0-a8c5-f7392a706a4b)
+
+- Setting pada sriwijaya di /etc/bind/named.conf.options
+![Screenshot 2024-10-03 164201](https://github.com/user-attachments/assets/47a97a68-270a-4e35-9211-fe6c279b1dd2)
+
+- setting pada sriwijaya di /etc/bind/named.conf.local
+![Screenshot 2024-10-03 164320](https://github.com/user-attachments/assets/8101dc88-2273-4e90-888c-309e2d9d8c64)
+
+- lakukan restart bind9 di sriwijaya
+```
+service bind9 restart
+```
+
+- lakukan setting majapahit di /etc/bind/named.conf.options
+![Screenshot 2024-10-03 164558](https://github.com/user-attachments/assets/b6baef30-c866-424b-80e8-f9f79c678772)
+
+- lakukan setting pada majapahit di /etc/bind/named.conf.local
+![Screenshot 2024-10-03 164718](https://github.com/user-attachments/assets/4d73cb31-81e8-41e7-bfd7-d91ef421773e)
+
+- Copy db.local ke direktori tersebut dan edit namanya menjadi panah.pasopati.it15.com
+```
+mkdir /etc/bind/panah
+cp /etc/bind/db.local /etc/bind/panah/panah.pasopati.it15.com
+```
+
+- lakukan setting panah.pasopati.it15.com di majapahit sesuai dengan directory yang sudah didefinisikan (/etc/bind/panah/panah.pasopati.it15.com)
+![Screenshot 2024-10-03 165059](https://github.com/user-attachments/assets/89bcab9d-42f6-4ea7-9105-8bf6643346bf)
+
+- restart bind9 di majapahit
+```
+service bind9 restart
+```
+
+- testing
+Lakukan ping ke domain panah.pasopati.it15.com dari client
+
+
+
+
+
+
+
+
+
+
+
+
+
