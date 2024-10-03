@@ -530,3 +530,51 @@ service apache2 restart
 Setelah restart apache2 pada web server Kotalingga, web apache2 yang telah di-deploy dapat dites melalui salah satu client yang ada.
 ![image](https://github.com/user-attachments/assets/f014bc39-4b61-4c2b-84b4-5efba5085a38)
 ![image](https://github.com/user-attachments/assets/4a741671-d8c6-4059-bf3e-55316e6505a7)
+
+# No. 13
+Soal:
+> Karena Sriwijaya dan Majapahit memenangkan pertempuran ini dan memiliki banyak uang dari hasil penjarahan (sebanyak 35 juta, belum dipotong pajak) maka pusat meminta kita memasang load balancer untuk membagikan uangnya pada web nya, dengan Kotalingga, Bedahulu, Tanjungkulai sebagai worker dan Solok sebagai Load Balancer menggunakan apache sebagai web server nya dan load balancer nya.
+
+Di load balancer Solok, install kebutuhan load balancer dan enable modul - modul yang dibutuhkan pada config apache2.
+```
+apt-get update
+apt-get install apache2 libapache2-mod-php7.0 -y
+
+a2enmod proxy
+a2enmod proxy_http
+a2enmod proxy_balancer
+a2enmod lbmethod_byrequests
+```
+
+Setelah itu, ubah konfigurasi pada ```000-default.conf``` menjadi konfigurasi berikut.
+```
+<VirtualHost *:80>
+        <Proxy balancer://mycluster>
+                BalancerMember http://10.71.2.4
+                BalancerMember http://10.71.2.5
+		BalancerMember http://10.71.2.6
+		ProxySet lbmethod=byrequests
+        </Proxy>
+
+	ProxyPass / balancer://mycluster/
+	ProxyPassReverse / balancer://mycluster/
+        ProxyPreserveHost On
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+```
+![image](https://github.com/user-attachments/assets/18571248-2a69-44e0-a0c4-5af5a8bf08fb)
+
+Untuk web server Bedahulu dan Tanjungkulai, lakukan hal yang sama seperti web server Kotalingga di Soal no. 12.
+
+Untuk mengetes load balancer Solok, dapat mengakses IP dari Solok menggunakan command ```lynx http://10.71.2.2/index.php```
+![image](https://github.com/user-attachments/assets/91ad1461-5da6-4245-a706-b879c7ba6833)
+![image](https://github.com/user-attachments/assets/2111829c-99e8-4d84-bd59-3f964e3bee78)
+![image](https://github.com/user-attachments/assets/3f7a13d7-9445-462b-8d0e-a6bc2bda707b)
+
+Setiap kali IP Solok diakses menggunakan lynx, isi dari index.php akan berubah.
